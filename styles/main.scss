@@ -1,10 +1,308 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-$fa-font-path: "/fonts";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~chartist/dist/scss/chartist.scss";
 
 // styles can be added here
 
+
+html {
+	font-family: sans-serif;
+	background-image: linear-gradient(150deg, #ffffff, #50d268);
+	height: 100vh;
+}
+
 body {
-	font-family: 'sans-serif';
+	margin: 0;
+}
+
+.container {
+	background: #ffffff;
+	max-width: 1200px;
+	margin: 30px auto 0 auto;
+	padding: 30px;
+	border: 1px solid #000000;
+	border-radius: 10px;
+
+	h1 {
+		font-size: 30px;
+		font-weight: 900;
+		margin-top: 0;
+	}
+	
+	.content-container {
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: row-reverse;
+		-ms-flex-direction: row-reverse;
+		flex-direction: row-reverse;
+		-webkit-flex-wrap: nowrap;
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+		-webkit-justify-content: flex-start;
+		-ms-flex-pack: start;
+		justify-content: flex-start;
+		-webkit-align-content: flex-start;
+		-ms-flex-line-pack: start;
+		align-content: flex-start;
+		-webkit-align-items: flex-start;
+		-ms-flex-align: start;
+		align-items: flex-start;
+		
+		.content-data {
+			-webkit-align-self: stretch;
+			-ms-flex-item-align: stretch;
+			align-self: stretch;
+			padding-left: 30px;
+			width: 50%;
+			border-left: 1px solid #ccc;
+
+			h2 {
+				margin-top: 0;
+				font-size: 20px;
+			}
+
+			#chart {
+				min-width: 100px;
+				min-height: 100px;
+				background: #ffffff;
+			}
+
+			.actions {
+				display: flex;
+				margin-bottom: 10px;
+
+				label {
+					display: block;
+					font-size: 16px;
+				}
+				.action-left {
+					-webkit-order: 0;
+					-ms-flex-order: 0;
+					order: 0;
+					-webkit-flex: 1 1 auto;
+					-ms-flex: 1 1 auto;
+					flex: 1 1 auto;
+					-webkit-align-self: auto;
+					-ms-flex-item-align: auto;
+					align-self: auto;
+					select {
+						display: block;
+						padding: 5px;
+					}
+				}
+				.action-right {
+					-webkit-order: 0;
+					-ms-flex-order: 0;
+					order: 0;
+					-webkit-flex: 1 1 auto;
+					-ms-flex: 1 1 auto;
+					flex: 1 1 auto;
+					-webkit-align-self: auto;
+					-ms-flex-item-align: auto;
+					align-self: auto;
+
+					input {
+						display: block;
+						padding: 5px;
+						width: 90%;
+						&::-webkit-inner-spin-button {
+							opacity: 1
+						}
+					}
+				}
+			}
+
+			.data-table {
+				.data-column {
+					-webkit-order: 0;
+					-ms-flex-order: 0;
+					order: 0;
+					-webkit-flex: 1 1 auto;
+					-ms-flex: 1 1 auto;
+					flex: 1 1 auto;
+					-webkit-align-self: auto;
+					-ms-flex-item-align: auto;
+					align-self: auto;
+					line-height: 22px;
+					padding: 5px;
+					color: #000000;
+					border-bottom: 1px solid #000000;
+				}
+				.data-header {
+					display: block;
+					width: 100%;
+					display: flex;
+					a {
+						font-weight: bold;
+						text-decoration: none;
+						&:nth-child(1) {
+							border-right: 1px solid #000;
+							width: 70%;
+						}
+						&:nth-child(2) {
+							width: 30%;
+						}
+					}
+				}
+				.data-body {
+					display: block;
+					width: 100%;
+					.data-item {
+						display: flex;
+						>div {
+							&:nth-child(1) {
+								border-right: 1px solid #000;
+								width: 70%;
+							}
+							&:nth-child(2) {
+								width: 30%;
+							}
+						}
+						&.important {
+							background-color:#50d268;
+							>div {
+								color: #ffffff;
+								font-weight: bold;
+							}
+						}
+					}
+				}
+				.data-footer {
+					display: block;
+					width: 100%;
+					display: flex;
+					>div:nth-child(1) {
+						border-right: 1px solid #000;
+						width: 70%;
+					}
+					>div:nth-child(2) {
+						width: 30%;
+					}
+				}
+				.data-no-results {
+					background: #ddd;
+					text-align: center;
+					padding: 20px;
+					font-size: 20px;
+				}
+			}
+		}
+		
+		.content-info {
+			-webkit-align-self: stretch;
+			-ms-flex-item-align: stretch;
+			align-self: stretch;
+			padding: 0 30px 0 0;
+			width: 50%;
+
+			.tabs {
+				display: flex;
+				button {
+					-webkit-order: 0;
+					-ms-flex-order: 0;
+					order: 0;
+					-webkit-flex: 1 1 auto;
+					-ms-flex: 1 1 auto;
+					flex: 1 1 auto;
+					-webkit-align-self: auto;
+					-ms-flex-item-align: auto;
+					align-self: auto;
+
+					background: #ffffff;
+					height:36px;
+					border: 1px solid #000;
+					border-radius: 0;
+					&:active,
+					&:focus {
+						outline: none;
+					}
+					&.active {
+						background-color: #50d268;
+					}
+					&.strong {
+						font-weight: bold;
+					}
+				}
+			}
+
+			.bullets {
+				>div {
+					display: block;
+					padding: 10px 0 10px 0;
+					>i {
+						display: block;
+						float: left;
+						width: 20px;
+						text-align: center;
+					}
+					>div {
+						margin-left: 30px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.ct-series-b .ct-point,
+.ct-series-b .ct-line,
+.ct-series-b .ct-bar,
+.ct-series-b .ct-slice-donut {
+	stroke: #50d268;
+}
+
+.negative {
+	font-weight: bold;
+	color: #ff0000;
+}
+
+.positive {
+	font-weight: bold;
+	color: #50d268;
+}
+
+.loading {
+	opacity: 0.5;
+}
+
+@media only screen and (max-width: 720px) {
+	.container {
+		width: 100%;
+		padding: 10px 0 40px 0;
+		margin: 0;
+		border-radius: 0;
+		border: 0;
+		h1 {
+			text-align: center;
+		}
+		.content-container {
+			display: block;
+			width: auto;
+			.content-data {
+				padding: 0;
+				border: 0;
+				display: block;
+				width: auto;
+
+				h2 {
+					padding-left: 10px;
+				}
+				.actions {
+					padding: 0 10px;
+				}
+			}
+			.content-info {
+				width: auto;
+				padding: 10px;
+				.tabs {
+					position: fixed;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
 }
